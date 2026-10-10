@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الخيول العربية | الأصالة والجمال</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#faf6ef; --dark:#1a120b; --gold:#c19a3d; --gold2:#e8c874;
+  --brown:#5b3a1e; --card:#ffffff; --muted:#7a6a55; --green:#1e5b3f;
+}
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--dark);line-height:1.8}
+a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:50;background:rgba(26,18,11,.95);backdrop-filter:blur(8px);color:#fff}
+.nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+.logo{font-weight:800;font-size:20px;display:flex;align-items:center;gap:8px}
+.logo span{color:var(--gold2)}
+.menu{display:flex;gap:18px;font-size:15px}
+.menu a{opacity:.9}.menu a:hover{color:var(--gold2)}
+.burger{display:none;background:none;border:1px solid #ffffff44;color:#fff;border-radius:8px;padding:6px 12px;font-size:20px;cursor:pointer}
+.hero{background:linear-gradient(rgba(20,12,5,.65),rgba(20,12,5,.55)),url('https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=1200&q=80&auto=format&fit=crop');background-size:cover;background-position:center;color:#fff;text-align:center;padding:90px 20px 70px}
+.hero h1{font-size:clamp(28px,6vw,52px);font-weight:900;margin-bottom:10px}
+.hero h1 em{color:var(--gold2);font-style:normal}
+.hero p{max-width:700px;margin:10px auto 24px;opacity:.95;font-size:clamp(15px,3.5vw,19px)}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{background:var(--gold);color:#1a120b;font-weight:700;padding:12px 26px;border-radius:999px;border:none;cursor:pointer;font-size:16px}
+.btn.out{background:transparent;color:#fff;border:2px solid #ffffff88}
+.stats{max-width:1100px;margin:-32px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:0 16px}
+.stat{background:#fff;border-radius:16px;padding:16px;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.stat b{font-size:22px;color:var(--brown);display:block}
+.stat small{color:var(--muted)}
+main{max-width:1100px;margin:auto;padding:32px 16px}
+section{margin:48px 0}
+.sec-title{text-align:center;margin-bottom:6px;font-size:clamp(22px,5vw,32px);color:var(--brown)}
+.sec-sub{text-align:center;color:var(--muted);margin-bottom:24px}
+.searchbar{display:flex;gap:8px;max-width:500px;margin:0 auto 20px}
+.searchbar input{flex:1;padding:12px 16px;border-radius:999px;border:1px solid #ddd;font-size:15px;font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border-radius:18px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.07);border:1px solid #eee;display:flex;flex-direction:column;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card-img{height:170px;display:flex;align-items:center;justify-content:center;font-size:72px;color:#fff;font-weight:900}
+.card-body{padding:16px}
+.badge{display:inline-block;font-size:12px;background:#f3e8cf;color:var(--brown);padding:3px 12px;border-radius:999px;margin-bottom:8px;font-weight:700}
+.card-body h3{font-size:19px;margin-bottom:6px}
+.card-body p{font-size:14px;color:#4a4036}
+.card-body ul{font-size:13px;color:var(--muted);margin-top:8px;padding-right:18px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feat{background:#fff;border:1px solid #eee;border-radius:16px;padding:20px;text-align:center}
+.feat div{font-size:34px}
+.feat h3{margin:8px 0 4px;color:var(--brown);font-size:17px}
+.feat p{font-size:14px;color:#5a4f42}
+.table-wrap{overflow-x:auto;background:#fff;border-radius:16px;border:1px solid #eee}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:650px}
+th,td{padding:12px 10px;text-align:center;border-bottom:1px solid #f0e8d8}
+th{background:var(--dark);color:var(--gold2)}
+tr:nth-child(even) td{background:#fbf7ee}
+.timeline{background:#fff;border-radius:16px;padding:24px;border:1px solid #eee}
+.timeline li{margin-bottom:12px;list-style:none;padding-right:14px;border-right:3px solid var(--gold);font-size:15px}
+.timeline b{color:var(--brown)}
+.care{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.care div{background:#fff;border-radius:16px;padding:20px;border:1px solid #eee;font-size:15px}
+.care h3{color:var(--green);margin-bottom:8px}
+.faq details{background:#fff;border:1px solid #eee;border-radius:12px;margin-bottom:10px;padding:14px 16px}
+.faq summary{font-weight:700;cursor:pointer;color:var(--brown)}
+footer{background:var(--dark);color:#d8cbb6;text-align:center;padding:28px 16px;font-size:14px;margin-top:40px}
+footer b{color:var(--gold2)}
+@media(max-width:860px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .features{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .menu{display:none;flex-direction:column;position:absolute;top:100%;right:0;left:0;background:#1a120b;padding:16px;gap:12px;border-top:1px solid #ffffff22}
+  .menu.open{display:flex}
+  .burger{display:block}
+  .grid{grid-template-columns:1fr}
+  .features{grid-template-columns:1fr}
+  .care{grid-template-columns:1fr}
+  .hero{padding:64px 16px 56px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">🐎 <span>الخيول العربية</span></div>
+    <div class="menu" id="menu">
+      <a href="#about">عن الخيل العربي</a>
+      <a href="#strains">السلالات</a>
+      <a href="#traits">الصفات</a>
+      <a href="#compare">مقارنة</a>
+      <a href="#care">العناية</a>
+      <a href="#faq">أسئلة شائعة</a>
+    </div>
+    <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>الخيل العربي <em>أصالة • جمال • وفاء</em></h1>
+  <p>أعرق سلالات الخيول في العالم، نشأت في الجزيرة العربية قبل آلاف السنين، وتتميز بالذكاء والسرعة والجمال. تعرّف على سلالاتها وأنواع الخيول العالمية.</p>
+  <div class="btns">
+    <a class="btn" href="#strains">اكتشف السلالات</a>
+    <a class="btn out" href="#compare">قارن بين الأنواع</a>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><b>+5000 سنة</b><small>من التاريخ الموثق</small></div>
+  <div class="stat"><b>160 كم</b><small>قدرة التحمل في السباقات</small></div>
+  <div class="stat"><b>60 كم/س</b><small>السرعة القصوى</small></div>
+  <div class="stat"><b>25-30 سنة</b><small>متوسط العمر</small></div>
+</div>
+
+<main>
+<section id="about">
+  <h2 class="sec-title">لماذا الخيل العربي مميز؟</h2>
+  <p class="sec-sub">سلالة نقية حافظت على دمها عبر القرون، وأثّرت في كل سلالات الخيول الحديثة تقريباً</p>
+  <div class="features">
+    <div class="feat"><div>🏜️</div><h3>التحمّل الفائق</h3><p>يتحمل الحرارة والمسافات الطويلة بفضل رئتين واسعتين وكفاءة عالية في استخدام الطاقة.</p></div>
+    <div class="feat"><div>🧠</div><h3>الذكاء والوفاء</h3><p>من أذكى الخيول وأكثرها ارتباطاً بصاحبها، سريع التعلم وهادئ الطباع.</p></div>
+    <div class="feat"><div>✨</div><h3>الجمال الأسطوري</h3><p>رأس صغير مقعّر، عينان واسعتان، رقبة مقوسة وذيل مرفوع — علامات الجمال العربي الأصيل.</p></div>
+  </div>
+</section>
+
+<section id="strains">
+  <h2 class="sec-title">السلالات العربية الأصيلة (الرسن)</h2>
+  <p class="sec-sub">الخيول العربية تُنسب لأرسان رئيسية توارثها البدو</p>
+  <div class="searchbar"><input id="q" placeholder="ابحث عن سلالة... مثال: كحيلة" oninput="filterCards()"></div>
+  <div class="grid" id="grid">
+
+    <div class="card" data-name="كحيلة كحيلان">
+      <div class="card-img" style="background:linear-gradient(135deg,#5b3a1e,#c19a3d)">🐎</div>
+      <div class="card-body"><span class="badge">الأكثر شهرة</span><h3>كحيلة (كحيلان)</h3>
+      <p>أشهر وأقوى الأرسان العربية، ضخمة البنية، عميقة الصدر، ممتازة في السباقات والتحمل.</p>
+      <ul><li>اللون: غالباً رمادي أو أحمر</li><li>الطول: 150 - 160 سم</li><li>الاستخدام: سباقات السرعة والتحمل</li></ul></div>
+    </div>
+
+    <div class="card" data-name="صقلاوية صقلاوي">
+      <div class="card-img" style="background:linear-gradient(135deg,#7a2e2e,#e8a874)">🐴</div>
+      <div class="card-body"><span class="badge">الأجمل</span><h3>صقلاوية</h3>
+      <p>سلالة الجمال والأناقة، رشيقة وناعمة الملامح، المفضلة في عروض الجمال.</p>
+      <ul><li>اللون: أشقر ورمادي فاتح</li><li>الطول: 145 - 155 سم</li><li>الاستخدام: عروض الجمال والفروسية</li></ul></div>
+    </div>
+
+    <div class="card" data-name="عبية عبيان">
+      <div class="card-img" style="background:linear-gradient(135deg,#1e5b3f,#7cc79a)">🏇</div>
+      <div class="card-body"><span class="badge">الأسرع</span><h3>عبية (عبيان)</h3>
+      <p>خفيفة وسريعة، طويلة الأرجل، مشهورة بالسباقات القصيرة والانطلاقة القوية.</p>
+      <ul><li>اللون: أحمر داكن وبني</li><li>الطول: 150 - 158 سم</li><li>الاستخدام: سباقات السرعة</li></ul></div>
+    </div>
+
+    <div class="card" data-name="حمدانية حمداني">
+      <div class="card-img" style="background:linear-gradient(135deg,#2e3a7a,#8aa4e8)">🎠</div>
+      <div class="card-body"><span class="badge">القوية</span><h3>حمدانية</h3>
+      <p>بنية عضلية قوية ورأس كبير نسبياً، شجاعة وتُستخدم للفروسية والقتال قديماً.</p>
+      <ul><li>اللون: أزرق ورمادي داكن</li><li>الطول: 152 - 162 سم</li><li>الاستخدام: الفروسية والتحمل</li></ul></div>
+    </div>
+
+    <div class="card" data-name="هدبانية هدبان">
+      <div class="card-img" style="background:linear-gradient(135deg,#6b2e7a,#d48ae8)">🐎</div>
+      <div class="card-body"><span class="badge">النبيلة</span><h3>هدبانية (هدبان)</h3>
+      <p>سلالة نبيلة متوسطة الحجم، متوازنة بين الجمال والقوة، محبوبة لدى المربين.</p>
+      <ul><li>اللون: أسود ورمادي</li><li>الطول: 148 - 156 سم</li><li>الاستخدام: التربية والعروض</li></ul></div>
+    </div>
+
+    <div class="card" data-name="معنقية معنقي">
+      <div class="card-img" style="background:linear-gradient(135deg,#7a5a1e,#e8d48a)">🏇</div>
+      <div class="card-body"><span class="badge">طويلة الرقبة</span><h3>معنقية</h3>
+      <p>تتميز برقبة طويلة وجسم رشيق، سريعة الجري وتتحمل المسافات الطويلة.</p>
+      <ul><li>اللون: أصفر وأشقر</li><li>الطول: 150 - 160 سم</li><li>الاستخدام: سباقات التحمل</li></ul></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="traits">
+  <h2 class="sec-title">أنواع الخيول العالمية</h2>
+  <p class="sec-sub">إلى جانب العربي، هذه أشهر السلالات العالمية</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th>السلالة</th><th>الأصل</th><th>الطول</th><th>السرعة</th><th>الاستخدام</th></tr>
+    <tr><td><b>العربي الأصيل</b></td><td>الجزيرة العربية</td><td>145-160 سم</td><td>55-60 كم/س</td><td>تحمل • جمال • سباقات</td></tr>
+    <tr><td><b>الثوروبريد الإنجليزي</b></td><td>إنجلترا</td><td>160-175 سم</td><td>70 كم/س</td><td>سباقات السرعة</td></tr>
+    <tr><td><b>الأندلسي</b></td><td>إسبانيا</td><td>155-165 سم</td><td>45 كم/س</td><td>الفروسية الاستعراضية</td></tr>
+    <tr><td><b>الفريزيان</b></td><td>هولندا</td><td>160-175 سم</td><td>40 كم/س</td><td>العروض والجر</td></tr>
+    <tr><td><b>الموستانج</b></td><td>أمريكا</td><td>140-155 سم</td><td>50 كم/س</td><td>البرية والرحلات</td></tr>
+    <tr><td><b>البربري</b></td><td>شمال أفريقيا</td><td>145-155 سم</td><td>55 كم/س</td><td>التحمل والفروسية</td></tr>
+  </table>
+  </div>
+</section>
+
+<section id="compare">
+  <h2 class="sec-title">تاريخ الخيل العربي</h2>
+  <p class="sec-sub">رحلة عبر آلاف السنين</p>
+  <ul class="timeline">
+    <li><b>3000 ق.م:</b> تدجين الخيول الأولى في الجزيرة العربية وبلاد الشام.</li>
+    <li><b>العصر الجاهلي:</b> البدو يطوّرون الأرسان النقية ويحفظون الأنساب شفهياً.</li>
+    <li><b>القرن 7م:</b> انتشار الخيل العربي مع الفتوحات الإسلامية إلى فارس وشمال أفريقيا والأندلس.</li>
+    <li><b>القرن 18م:</b> ثلاثة فحول عربية (دارلي، بيرلي، غودولفين) تؤسس سلالة الثوروبريد الإنجليزية.</li>
+    <li><b>اليوم:</b> السعودية ومصر والإمارات من أهم مراكز تربية الخيل العربي الأصيل عالمياً.</li>
+  </ul>
+</section>
+
+<section id="care">
+  <h2 class="sec-title">العناية بالخيل</h2>
+  <p class="sec-sub">أساسيات يجب أن يعرفها كل مربٍّ</p>
+  <div class="care">
+    <div><h3>🥗 التغذية</h3><p>شعير وشوفان + برسيم وتبن، مع ماء نظيف دائماً. تجنب الإفراط في الحبوب لتفادي المغص. مكملات الأملاح مهمة في الصيف.</p></div>
+    <div><h3>🏃 التدريب</h3><p>ابدأ الترويض بعمر سنتين، والتدريب اليومي 30-60 دقيقة مع الإحماء والتبريد التدريجي.</p></div>
+    <div><h3>🧼 النظافة</h3><p>تمشيط يومي للشعر والذيل، تنظيف الحوافر قبل وبعد الركوب، واستحمام أسبوعي في الصيف.</p></div>
+    <div><h3>💉 الصحة</h3><p>تطعيمات دورية، تقليم حوافر كل 6-8 أسابيع، وفحص الأسنان سنوياً. راقب الشهية والحركة يومياً.</p></div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <h2 class="sec-title">أسئلة شائعة</h2>
+  <p class="sec-sub">كل ما تريد معرفته عن الخيول العربية</p>
+  <details open><summary>ما الفرق بين الخيل العربي والخيل الإنجليزي؟</summary><p>العربي أصغر حجماً لكنه أكثر تحملاً وذكاءً وعمراً أطول، بينما الإنجليزي (الثوروبريد) أسرع في المسافات القصيرة وأطول قامة. معظم الخيول الإنجليزية تحمل دماً عربياً في أصلها.</p></details>
+  <details><summary>كم سعر الخيل العربي الأصيل؟</summary><p>يبدأ من 20 ألف ريال للمهور العادية، ويصل إلى ملايين الريالات لخطوط البطولات العالمية ذات النسب الموثق (واهو).</p></details>
+  <details><summary>ما أجمل ألوان الخيل العربي؟</summary><p>الرمادي (الأزرق) والأحمر والأشقر والأسود. الرمادي هو الأشهر في خطوط الجمال المصرية والبولندية.</p></details>
+  <details><summary>هل الخيل العربي مناسب للمبتدئين؟</summary><p>نعم، لذكائه وهدوئه، لكنه حساس ويحتاج فارساً هادئاً. الحمدانية والكحيلة أنسب للمبتدئين من العبية شديدة الحماس.</p></details>
+</section>
+</main>
+
+<footer>
+  <b>🐎 الخيول العربية</b> — موقع تعريفي بسلالات الخيل العربي وأنواع الخيول<br>
+  صُمم بعناية لعشاق الفروسية • متجاوب مع الجوال والتابلت وسطح المكتب
+</footer>
+
+<script>
+function filterCards(){
+  var q=document.getElementById('q').value.trim();
+  document.querySelectorAll('#grid .card').forEach(function(c){
+    c.style.display = c.dataset.name.includes(q) ? '' : 'none';
+  });
+}
+document.querySelectorAll('.menu a').forEach(function(a){
+  a.onclick=function(){document.getElementById('menu').classList.remove('open')};
+});
+</script>
+</body>
+</html>
